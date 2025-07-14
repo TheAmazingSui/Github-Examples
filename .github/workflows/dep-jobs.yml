@@ -1,0 +1,17 @@
+name: dep-jobs example
+
+on: ['push']
+
+jobs:
+    job2:
+        runs-on: ubuntu-latest
+        needs: job1
+        steps: 
+            - name: step2
+              run: echo "This should run last"
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: step 1 
+              run: echo "me first!"
+
